@@ -1,5 +1,7 @@
-var editable_tags = document.querySelectorAll('p');
+import { MyWysiwyg } from "./modules/my_wysiwyg.js";
 
-editable_tags.forEach(tag => {
-    tag.setAttribute("contenteditable", "true")
+document.addEventListener("DOMContentLoaded", () => {
+    let mw = new MyWysiwyg(document, {
+      toolbar: ["bold", "italic", "font-size"],
+    });
 });
