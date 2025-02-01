@@ -1,5 +1,4 @@
 import { createWysiwyg } from "./create_wysiwyg.js";
-import { setTextFormatting } from "./setTextFormatting.js";
 
 class MyWysiwyg {
   constructor(element, options = {}) {
@@ -15,7 +14,6 @@ class MyWysiwyg {
     );
 
     createWysiwyg(this.options, this.element);
-    setTextFormatting();
   }
 }
 

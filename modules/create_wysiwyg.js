@@ -33,6 +33,7 @@ function createEditor(element) {
 
   const paragraph = document.createElement("p");
   paragraph.innerText = "Tapez votre texte ici";
+  paragraph.id = "textarea";
   paragraph.contentEditable = true;
 
   editor.appendChild(paragraph); // ajoute un premier paragraphe editable par defaut
@@ -60,14 +61,6 @@ function renameOptionForButton(tool) {
     case "link":
       return "link";
   }
-  if (tool == "bold") button.innerText = "B";
 }
-
-// ✓ Gras
-// ✓ Italique
-// ✓ Texte barré
-// ✓ Choix de la couleur
-// ✓ Taille de la police
-// ✓ Lien
 
 export { createWysiwyg };

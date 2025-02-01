@@ -6,20 +6,34 @@ function setTextFormatting(tool) {
     return; // Aucune sélection, rien à formater
   }
   const range = selection.getRangeAt(0);
-  const node = document.createElement("span");
-  node.innerText = selection.toString();
+  const commonAncestor = range.commonAncestorContainer;
 
-  switch (tool) {
-    case "italic":
-      node.classList.contains("italic") ? node.classList.remove("italic") : node.classList.add("italic");
-      break;
-    case "bold":
-      node.classList.contains("bold") ? node.classList.remove("bold") : node.classList.add("bold");
-      break;
+  // Si le commonAncestorContainer est un nœud de texte alors on prend son parent (pour avoir la span)
+  const ancestorElement = commonAncestor.nodeType === Node.TEXT_NODE ? commonAncestor.parentNode : commonAncestor;
+
+  // Vérifie si le texte sélectionné est déjà dans un span avec la classe correspondante
+  const existingSpans = ancestorElement.querySelectorAll(`span.${tool}`);
+
+  let isInSelection = false;
+
+  // Vérifie si les spans trouvés sont dans la sélection actuelle
+  existingSpans.forEach(span => {
+    if (range.intersectsNode(span)) {
+      isInSelection = true;
+    }
+  });
+
+  if (isInSelection) {
+    // Si le span existe déjà dans la sélection, retire la classe de tous les spans trouvés
+    existingSpans.forEach(span => span.classList.remove(tool));
+  } else {
+    // Sinon, crée un nouveau span avec la classe
+    const span = document.createElement("span");
+    span.innerText = selection.toString();
+    span.classList.add(tool);
+    range.deleteContents();
+    range.insertNode(span);
   }
-
-  range.deleteContents();
-  range.insertNode(node);
 }
 
 export { setTextFormatting };
