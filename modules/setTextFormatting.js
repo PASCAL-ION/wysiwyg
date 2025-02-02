@@ -48,6 +48,14 @@ if (tool ==="font-size") {
 }
 return null;
 
+if (tool === "hypertext") { 
+  let link = document.createElement("a");
+  link.href = "https://example.com/";
+  link.textContent = textElement.textContent;
+
+  textElement.replaceWith(link); // met la selection sous forme de lien mais garde les élements d'origine
+}
+
 export {
   setTextFormatting
 };
