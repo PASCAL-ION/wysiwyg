@@ -5,11 +5,32 @@ function createToolBar(options, element) {
     HTML_toolbar.classList.add("toolbar");
   
     options.options.forEach((option) => {
-      const button = document.createElement("button");
-      button.innerText = renameOptionForButton(option);
+
+      if (option === "font-size") {
+        let select = document.createElement("select");
+        for (let i = 2; i <= 48; i += 2) {
+          let select_option = document.createElement("option");
+          select_option.value = i;
+          select_option.textContent = `${i}px`;
+          select.appendChild(select_option);
+        }
+        HTML_toolbar.appendChild(select);
+      } else {
+        const button = document.createElement("button");
+        button.innerText = renameOptionForButton(option);
+        button.addEventListener("click", () => setTextFormatting(option));
+        HTML_toolbar.appendChild(button);
+      }
+      
+      // if (option == "link") { 
+      //   let link = document.createElement("a");
+      //   link.href = "https://example.com/";
+      //   link.textContent = textElement.textContent;
+      
+      //   textElement.replaceWith(link); // met la selection sous forme de lien mais garde les élements d'origine
+      // }
+
   
-      button.addEventListener("click", () => setTextFormatting(option));
-      HTML_toolbar.appendChild(button);
     });
 
     if (element.id == "textarea") {
