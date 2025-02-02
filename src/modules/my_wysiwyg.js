@@ -1,5 +1,5 @@
 import { createToolBar } from "./create_toolbar.js";
-import { createEditor } from "./create_editor.js.js";
+import { createEditor } from "./create_editor.js";
 import { saveInLocalStorage } from "./saveInLocalStorage.js";
 
 class MyWysiwyg {
