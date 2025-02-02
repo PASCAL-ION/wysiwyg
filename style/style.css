@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+  --wysiwyg-width: clamp(200px, 80%, 800px);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, #fffdfd 10%, #dcab85 96%);
+  color: blanchedalmond;
+  height: 100vh;
+  font-family: "Space Mono", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#textarea {
+  padding: 10px;
+  color: #000;
+}
+
+.editable_paragraph {
+  padding: 10px;
+}
+
+button {
+  background: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  font-family: "Space Mono", serif;
+  font-weight: 400;
+  font-style: normal;
+
+}
+
+button:hover {
+  background: #3c83c5;
+  color: rgba(245, 222, 179, 0.703);
+  transform: scale(1.05);
+}
+
+h1 {
+  margin-bottom: 50px;
+  color: #4e3629;
+}
+
+.editor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid #ccc;
+  min-height: 50px;
+  padding: 10px;
+  min-width: var(--wysiwyg-width);
+  border: 1px solid white;
+  background: #232323;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.toolbar {
+  display: flex;
+  gap: 5px;
+  min-width: non;
+  min-width: var(--wysiwyg-width);
+  background: #dab4a3;
+  padding: 10px 15px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+#saveInLocalStorage {
+  padding: 10px 15px;
+  background: #00862d;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.toolbar button {
+  cursor: pointer;
+}
+
+
+.italic {
+  font-style: italic;
+}
+
+.bold {
+  font-weight: 900;
+}
