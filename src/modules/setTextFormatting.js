@@ -18,7 +18,7 @@ function setTextFormatting(option) {
     div.innerHTML = "";
     JSON.parse(localStorage.getItem("paragraphs")).forEach((p) => {
       const newP = document.createElement("p");
-      newP.innerText = p;
+      newP.innerText = "<p>" + p + "</p>";
       div.appendChild(newP);
     });
     return;
