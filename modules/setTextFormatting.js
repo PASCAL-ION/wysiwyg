@@ -36,7 +36,7 @@ function setTextFormatting(tool) {
   }
 }
 
-if (tool == font - size) {
+if (tool ==="font-size") {
   let select = document.createElement("select");
   for (i = 2; i <= 48; i += 2) {
     let option = document.createElement("option");
