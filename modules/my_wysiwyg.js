@@ -1,19 +1,25 @@
-import { createWysiwyg } from "./create_wysiwyg.js";
+import { createToolBar } from "./create_toolbar.js";
+import { createEditor } from "./create_editor.js";
 
 class MyWysiwyg {
   constructor(element, options = {}) {
     this.element = element;
 
     this.options = Object.assign(
-      /* la methode assign va ajouter dans "toolbar" tout ce qu'il y a dans "options" (dans options ce sont les options que l'utilisateur aura entré)
-      les options presentes dans "option" écraseront celles dans toolbar */
       {
-        toolbar: ["bold", "italic", "underline"], //options par defaut
+        options: ["bold", "italic", "underline"], //options par defaut
       },
       options
     );
 
-    createWysiwyg(this.options, this.element);
+    if (element == document) {
+      createToolBar(this.options, this.element);
+      createEditor();
+    } else if (element.id == "textarea") {
+      createToolBar(this.options, this.element);
+    } else {
+      alert("Impossible de créer un éditeur sur un élement qui ne dispose pas de l'id 'textarea'");
+    }
   }
 }
 
