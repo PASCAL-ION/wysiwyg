@@ -3,8 +3,7 @@
 :root {
   --wysiwyg-width: clamp(200px, 80%, 800px);
 }
-
-* {
+*{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -24,11 +23,12 @@ body {
 }
 
 #textarea {
+  background: #000000;
+  color: blanchedalmond;
   padding: 10px;
-  color: #000;
 }
 
-.editable_paragraph {
+.editable_paragraph{
   padding: 10px;
 }
 
@@ -40,7 +40,6 @@ button {
   font-family: "Space Mono", serif;
   font-weight: 400;
   font-style: normal;
-
 }
 
 button:hover {
@@ -80,7 +79,7 @@ h1 {
   border-top-left-radius: 10px;
 }
 
-#saveInLocalStorage {
+#saveInLocalStorage{
   padding: 10px 15px;
   background: #00862d;
   color: white;
