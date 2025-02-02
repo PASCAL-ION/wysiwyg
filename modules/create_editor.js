@@ -1,3 +1,5 @@
+import { addTextBoxOnEnter } from "./addTextBoxOnEnter.js";
+
 function createEditor() {
   const editor = document.createElement("div");
   editor.classList.add("editor");
@@ -10,6 +12,7 @@ function createEditor() {
   editor.appendChild(paragraph); // ajoute un premier paragraphe editable par defaut
 
   document.body.appendChild(editor);
+  addTextBoxOnEnter(editor); //fonctionnalité pour ajouter un nv p lors de l'appui sur entré
 }
 
 export { createEditor };

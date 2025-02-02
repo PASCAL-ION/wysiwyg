@@ -1,5 +1,6 @@
 import { createToolBar } from "./create_toolbar.js";
 import { createEditor } from "./create_editor.js";
+import { saveInLocalStorage } from "./saveInLocalStorage.js";
 
 class MyWysiwyg {
   constructor(element, options = {}) {
@@ -7,7 +8,7 @@ class MyWysiwyg {
 
     this.options = Object.assign(
       {
-        options: ["bold", "italic", "underline"], //options par defaut
+        options: ["bold", "italic"], //options par defaut
       },
       options
     );
@@ -20,6 +21,8 @@ class MyWysiwyg {
     } else {
       alert("Impossible de créer un éditeur sur un élement qui ne dispose pas de l'id 'textarea'");
     }
+
+    saveInLocalStorage();
   }
 }
 
