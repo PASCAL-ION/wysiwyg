@@ -8,6 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // document.addEventListener("DOMContentLoaded", () => {
 //   let mw = new MyWysiwyg(document.getElementById("textarea"), {
-//     buttons: ["bold", "italic", "font-size"],
+//     buttons: ["bold", "italic", "html"],
 //   });
 // });

@@ -41,8 +41,7 @@ function restoreFromLocalStorage() {
 window.addEventListener("beforeunload", (event) => {
     let saved_paragraphs = JSON.parse(localStorage.getItem("paragraphs")) || [];
     const dom_paragraphs = document.querySelectorAll(".editable_paragraph");
-    const dom_contents = Array.from(dom_paragraphs).map(p => p.innerHTML.trim()); //dom_paragraphs est une nodelist et non un tableau js donc on le transforme en tableau pour pourvoir utiliser map dessus.
-    //map va ensuite créer un nouveau tableau avec le contenu de tous les paragraphes. Le trim enlève simplement les espaces du début et fin de phrase.
+    const dom_contents = Array.from(dom_paragraphs).map(p => p.innerHTML.trim());
 
     // console.log(JSON.stringify(saved_paragraphs));
     // console.log(JSON.stringify(dom_contents));

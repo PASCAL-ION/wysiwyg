@@ -1,15 +1,18 @@
 
-import { setTextFormatting } from "./setTextFormatting.js";
+import { setTextFormatting, changeFontSize } from "./setTextFormatting.js";
+
 
 function createToolBar(options, element) {
   const HTML_toolbar = document.createElement("div"); //on crée la div qui va contenir tous les boutons
   HTML_toolbar.classList.add("toolbar");
 
   options.options.forEach((option) => {
-    console.log(option);
-
     if (option === "font-size") {
       let select = document.createElement("select");
+      select.addEventListener("change", () => {
+        let fz = select_option.value;
+        changeFontSize(fz);
+      })
       for (let i = 2; i <= 48; i += 2) {
         let select_option = document.createElement("option");
         select_option.value = i;
